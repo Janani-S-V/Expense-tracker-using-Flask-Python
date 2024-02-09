@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://c4.wallpaperflare.com/wallpaper/836/532/876/spots-background-light-solid-wallpaper-preview.jpg'); /* Replace 'your-background-image.jpg' with the path to your image */
+            background-size: cover;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        a {
+            display: inline-block; /* Change from block to inline-block */
+            text-align: center;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #fff; /* Change text color to white */
+            background-color: #0066cc; /* Add background color */
+            padding: 10px 20px; /* Add padding for better button appearance */
+            border-radius: 5px; /* Add border radius for rounded corners */
+        }
+
+        a:hover {
+            background-color: #0052a3; /* Change background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <h2>Expense Tracker</h2>
+    <center>
+    {% if 'email' in session %}
+        <p>Welcome, {{ user.name }}!</p>
+        <a href="{{ url_for('dashboard') }}">Go to Dashboard</a>
+        <br>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+        <p>You are not logged in.</p>
+        <a href="{{ url_for('login') }}">Login</a>
+        <br>
+        <a href="{{ url_for('register') }}">Register</a>
+    {% endif %}
+    </center>
+</body>
+</html>
